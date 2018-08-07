@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PasswordManagement.Business
+namespace PasswordManagement.DataAccess.Entity
 {
-    public class Class1
+    public class Constant
     {
     }
 }
