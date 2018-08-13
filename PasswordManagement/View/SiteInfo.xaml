@@ -7,6 +7,12 @@
         mc:Ignorable="d"
         Title="SiteInfo" Height="450" Width="800">
     <Grid>
-        
+        <DataGrid x:Name="dataGrid"  ItemsSource="{Binding site_bind}"
+                  CellEditEnding="CellEditEnding" BeginningEdit="BeginningEdit">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding SiteName}" Header="网站" Width="200"/>
+                <DataGridTextColumn Binding="{Binding SitePasword}" Header="密码" Width="200"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>

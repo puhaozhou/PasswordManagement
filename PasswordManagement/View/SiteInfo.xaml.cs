@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PasswordManagement.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,7 @@ namespace PasswordManagement.View
         public SiteInfo()
         {
             InitializeComponent();
+            this.DataContext = new SiteViewModel();
         }
     }
 }
