@@ -5,6 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using PasswordManagement.Business;
 using PasswordManagement.DataAccess.Entity;
+using System.Windows.Controls;
+using System.Windows;
+using System.Windows.Input;
+using PasswordManagement.Command;
+using System.Windows.Media;
 
 namespace PasswordManagement.ViewModels
 {
@@ -34,6 +39,21 @@ namespace PasswordManagement.ViewModels
         public SiteViewModel()
         {
             Site_Bind = GetSitePassword();
+        }
+
+        public void ShowEditMode(object obj)
+        {
+            var EditButton = (Button) obj;
+            EditButton.Visibility = Visibility.Hidden;
+            var parent = VisualTreeHelper.GetParent(EditButton);
+        }
+
+        public ICommand EditButtonCommand          //定义接口
+        {
+            get
+            {
+                return new SiteCommand(ShowEditMode);
+            }            
         }
     }
 }

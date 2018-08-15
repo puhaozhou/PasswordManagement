@@ -5,13 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PasswordManagement.View"
         mc:Ignorable="d"
-        Title="SiteInfo" Height="450" Width="800">
+        Title="网站密码管理" Height="400" Width="800">
     <Grid>
-        <DataGrid x:Name="dataGrid"  ItemsSource="{Binding site_bind}"
-                  CellEditEnding="CellEditEnding" BeginningEdit="BeginningEdit">
+        <DataGrid x:Name="dataGrid"  ItemsSource="{Binding site_bind}">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding SiteName}" Header="网站" Width="200"/>
-                <DataGridTextColumn Binding="{Binding SitePasword}" Header="密码" Width="200"/>
+                <DataGridTextColumn Binding="{Binding Id}" Header="编号" Width="200" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding SiteName}" Header="网站" Width="200" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding SitePasword}" Header="密码" Width="200" IsReadOnly="True"/>
+                <DataGridTemplateColumn Header="操作" Width="200">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Content="编辑" Margin="10,0" Command="{Binding  EditButtonCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}}" />
+                                <Button Content="保存" Margin="10,0" Command="{Binding  SaveCommand}" CommandParameter="{Binding}" Visibility="Hidden"/>
+                                <Button Content="删除" Command="{Binding  DeleteCommand}" CommandParameter="{Binding Id}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
