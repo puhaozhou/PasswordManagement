@@ -3,15 +3,18 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:PasswordManagement.View"
+        xmlns:vm="clr-namespace:PasswordManagement.ViewModels"
         mc:Ignorable="d"
-        Title="网站密码管理" Height="400" Width="800">
+        Title="网站密码管理" Height="400" Width="810">
+    <Window.DataContext>
+        <vm:SiteViewModel/>
+    </Window.DataContext>
     <Grid>
-        <DataGrid x:Name="dataGrid"  ItemsSource="{Binding site_bind}">
+        <DataGrid x:Name="dataGrid"  ItemsSource="{Binding Site_Bind}" AutoGenerateColumns="False" Width="800">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Id}" Header="编号" Width="200" IsReadOnly="True"/>
                 <DataGridTextColumn Binding="{Binding SiteName}" Header="网站" Width="200" IsReadOnly="True"/>
-                <DataGridTextColumn Binding="{Binding SitePasword}" Header="密码" Width="200" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding SitePassword}" Header="密码" Width="200" IsReadOnly="True"/>
                 <DataGridTemplateColumn Header="操作" Width="200">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

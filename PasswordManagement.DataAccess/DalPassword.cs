@@ -32,9 +32,9 @@ namespace PasswordManagement.DataAccess
         public static List<SiteModel> GetPasswordImformation()
         {
             var result = new List<SiteModel>();
-            var sql = @"SELECT PKID as ID, site_name as SiteName, SITE_PASSWORD as SitePassword FROM SITE_DATE WHERE ISDELETED <> 0 and USERID = @UserID";
+            var sql = @"SELECT PKID as ID, site_name as SiteName, SITE_PASSWORD as SitePassword FROM SITE_DATA WHERE ISDELETED <> 1 and USERID = @UserID";
             var dt = new DataTable();
-            using (var conn = GetSQLiteConnection("SqlDiagnosticsDb"))
+            using (var conn = GetSQLiteConnection("SqlLiteConn"))
             {
                 result = conn.Query<SiteModel>(sql, new { USERID = "1" }).ToList();
             }
@@ -45,7 +45,7 @@ namespace PasswordManagement.DataAccess
         {
             var result = false;
             var sql = $"UPDATE SITE_DATE SET {columnName} = @SiteData where USERID = @UserId";
-            using (var conn = GetSQLiteConnection("SqlDiagnosticsDb"))
+            using (var conn = GetSQLiteConnection("SqlLiteConn"))
             {
                 var data = conn.Execute(sql, new { SiteData = value, UserId = '1'});
                 result = data > 0;

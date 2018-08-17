@@ -11,6 +11,6 @@ namespace PasswordManagement.DataAccess.Entity
         public int Id { get; set; }
         public string SiteName { get; set; }
 
-        public string SitePasword { get; set; }
+        public string SitePassword { get; set; }
     }
 }

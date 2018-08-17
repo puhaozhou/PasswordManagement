@@ -10,6 +10,7 @@ using System.Windows;
 using System.Windows.Input;
 using PasswordManagement.Command;
 using System.Windows.Media;
+using PasswordManagement.App_Code;
 
 namespace PasswordManagement.ViewModels
 {
@@ -45,7 +46,16 @@ namespace PasswordManagement.ViewModels
         {
             var EditButton = (Button) obj;
             EditButton.Visibility = Visibility.Hidden;
-            var parent = VisualTreeHelper.GetParent(EditButton);
+            //var parent = VisualTreeHelper.GetParent(EditButton);
+            //var elementName = parent.GetType()?.Name;
+            //if (!string.IsNullOrWhiteSpace(elementName))
+            //{
+            //    while (!elementName.Equals("DataGridTemplateColumn"))
+            //    {
+
+            //    }
+            //}
+            //var parent = EditButton.GetParentObject<DataGridTextColumn>();
         }
 
         public ICommand EditButtonCommand          //定义接口
