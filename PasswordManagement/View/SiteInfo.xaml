@@ -10,12 +10,14 @@
         <vm:SiteViewModel/>
     </Window.DataContext>
     <Grid>
-        <DataGrid x:Name="dataGrid"  ItemsSource="{Binding Site_Bind}" AutoGenerateColumns="False" Width="800">
+        <DataGrid x:Name="dataGrid"  ItemsSource="{Binding Site_Bind}" AutoGenerateColumns="False" Width="800" SelectionMode="Single">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Id}" Header="编号" Width="200" IsReadOnly="True"/>
-                <DataGridTextColumn Binding="{Binding SiteName}" Header="网站" Width="200" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Id}" Header="编号" Width="50" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding SiteName}" Header="网站" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Account}" Header="账号" Width="200" IsReadOnly="True"/>
                 <DataGridTextColumn Binding="{Binding SitePassword}" Header="密码" Width="200" IsReadOnly="True"/>
-                <DataGridTemplateColumn Header="操作" Width="200">
+                <DataGridTextColumn Binding="{Binding SitePassword}" Header="备注" Width="200" IsReadOnly="True"/>
+                <!--<DataGridTemplateColumn Header="操作" Width="200">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
@@ -25,8 +27,14 @@
                             </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
+                </DataGridTemplateColumn>-->
             </DataGrid.Columns>
         </DataGrid>
+        <!--<Button Content="编辑" Command="{Binding  EditButtonCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}}" />
+        <Button Content="保存" Command="{Binding  SaveCommand}" CommandParameter="{Binding}" Visibility="Hidden"/>
+        <Button Content="删除" Command="{Binding  DeleteCommand}" CommandParameter="{Binding Id}" />-->
+        <Button x:Name="BtSave" Command="{Binding AddCommand}" Content="新增" HorizontalAlignment="Left" Margin="70,240,0,-135" VerticalAlignment="Top" Width="69" Height="19" RenderTransformOrigin="0.466,0.941"/>
+        <Button x:Name="BtUpdate" Command="{Binding UpdateCommand}" Content="修改" HorizontalAlignment="Left" Margin="160,240,0,-135" VerticalAlignment="Top" Width="69" Height="19" RenderTransformOrigin="0.466,0.941"/>
+        <Button x:Name="BtDelete" Command="{Binding DeleteCommand}" Content="删除" HorizontalAlignment="Left" Margin="250,240,0,-135" VerticalAlignment="Top" Width="69" Height="19" RenderTransformOrigin="0.466,0.941"/>
     </Grid>
 </Window>

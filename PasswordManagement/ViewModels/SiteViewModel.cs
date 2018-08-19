@@ -44,8 +44,8 @@ namespace PasswordManagement.ViewModels
 
         public void ShowEditMode(object obj)
         {
-            var EditButton = (Button) obj;
-            EditButton.Visibility = Visibility.Hidden;
+            var BtUpdate = (Button) obj;
+            BtUpdate.Visibility = Visibility.Hidden;
             //var parent = VisualTreeHelper.GetParent(EditButton);
             //var elementName = parent.GetType()?.Name;
             //if (!string.IsNullOrWhiteSpace(elementName))
@@ -58,12 +58,6 @@ namespace PasswordManagement.ViewModels
             //var parent = EditButton.GetParentObject<DataGridTextColumn>();
         }
 
-        public ICommand EditButtonCommand          //定义接口
-        {
-            get
-            {
-                return new SiteCommand(ShowEditMode);
-            }            
-        }
+        public ICommand UpdateCommand  => new SiteCommand(ShowEditMode);
     }
 }
